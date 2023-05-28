@@ -154,9 +154,11 @@ class ItemController extends Controller
       public function detail(Item $item)
       {
 
-          return view('item.detail')
-              ->with(['item' => $item]);
+        //   return view('item.detail')
+        //       ->with(['item' => $item]);
 
+        $itemsCount = Item::count();
+    return view('item.detail', compact('item', 'itemsCount'));
 
       }
 

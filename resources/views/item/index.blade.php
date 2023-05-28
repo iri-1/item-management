@@ -15,7 +15,8 @@
                     <div class="card-tools">
                         <div class="input-group input-group-sm">
                             <div class="input-group-append">
-                                <a href="{{ url('items/add') }}" class="btn btn-default">商品登録</a>
+                                <a href="{{ route('items.export') }}" class="btn btn-success rounded-pill btn-exprot">登録データ一括エクスポート(CSV)</a>
+                                <a href="{{ url('items/add') }}" class="btn btn-secondary rounded-pill  btn-exprot">商品登録</a>
                             </div>
                         </div>
                     </div>
@@ -25,29 +26,36 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>名前</th>
-                                <th>種別</th>
-                                <th>詳細</th>
+                                <th>商品番号</th>
+                                <th>商品名</th>
+                                <th>カテゴリー</th>
+                                <th>更新日</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($items as $item)
-                                <tr>
+                                <tr onclick="window.location='{{ route('items.detail', $item->id) }}'">
                                     <td>{{ $item->id }}</td>
+                                    <td>{{ $item->cd }}</td>
                                     <td>{{ $item->name }}</td>
                                     <td>{{ $item->type }}</td>
-                                    <td>{{ $item->detail }}</td>
+                                    <td>{{ $item->updated_at }}</td>
                                 </tr>
                             @endforeach
                         </tbody>
                     </table>
+                    <div class="page_pagination">
+                        {{$items->links('pagination::bootstrap-4')}}
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
 @stop
 
 @section('css')
+<link href="{{ asset('css/style.css') }}" rel="stylesheet">
 @stop
 
 @section('js')

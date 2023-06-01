@@ -121,7 +121,8 @@
 
                     <div class="card-footer">
                         <button type="submit" class="btn btn-secondary rounded-pill">登録</button>
-                        <a href="{{ '/items' }}" type="submit" class="btn btn-secondary rounded-pill">戻る</a>
+                        {{-- <a href="{{ '/items' }}" type="submit" class="btn btn-secondary rounded-pill">戻る</a> --}}
+                        <a href="{{ route('items.index' ) }}" type="submit" class="btn btn-secondary rounded-pill">戻る</a>
                     </div>
                 </form>
 

@@ -131,7 +131,9 @@
                         <div class="form-button">
                         <button type="submit" class="btn btn-primary btn-lg rounded-pill">更新</button>
                         <button type="button" id="delete_button" class="btn btn-danger btn-lg rounded-pill">削除</button>
-                        <button tid="btn--back" class="btn btn-warning button-back btn-lg rounded-pill">戻る</button>
+                        {{-- <button tid="btn--back" class="btn btn-warning button-back btn-lg rounded-pill">戻る</button> --}}
+                        <a href="{{ route('items.detail', $item->id) }}" type="submit" class="btn btn-warning button-back btn-lg rounded-pill">戻る</a>
+
                     </div>
                 </div>
                 </form>

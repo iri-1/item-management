@@ -65,7 +65,8 @@
                     <div class="form-button">
                         <a href="{{ route('items.edit', $item) }}" class="btn btn-secondary rounded-pill">編集</a>
                         {{-- <a href="{{ session('previous_url') ?? url()->previous() }}" class="btn btn-secondary button-back rounded-pill">戻る</a> --}}
-                        <a href="{{ '/items' }}" type="submit" class="btn btn-secondary rounded-pill">戻る</a>
+                        {{-- <a href="{{ '/items' }}" type="submit" class="btn btn-secondary rounded-pill">戻る</a> --}}
+                        <a href="{{ route('items.index' ) }}" type="submit" class="btn btn-secondary rounded-pill">戻る</a>
 
                             <!-- 前の商品ボタンの表示 -->
                             @if ($item->id > 1)

@@ -66,18 +66,18 @@
                         <a href="{{ route('items.edit', $item) }}" class="btn btn-secondary rounded-pill">編集</a>
                         {{-- <a href="{{ session('previous_url') ?? url()->previous() }}" class="btn btn-secondary button-back rounded-pill">戻る</a> --}}
                         {{-- <a href="{{ '/items' }}" type="submit" class="btn btn-secondary rounded-pill">戻る</a> --}}
-                        <a href="{{ route('items.index' ) }}" type="submit" class="btn btn-secondary rounded-pill">戻る</a>
+                         <a href="{{ route('items.index',["page"=> $item->getPageNumber()] ) }}"  class="btn btn-secondary rounded-pill">戻る</a>
 
                             <!-- 前の商品ボタンの表示 -->
-                            @if ($item->id > 1)
-                            <a href="{{ route('items.detail', ['item' => $item->id - 1]) }}" type="button" id="before_button" class="btn btn-dark rounded-pill">前の商品</a>
+                            @if ($item->getPrevious())
+                            <a href="{{ route('items.detail', ['item' => $item->getPrevious()->id]) }}" type="button" id="before_button" class="btn btn-dark rounded-pill">前の商品</a>
                             @else
                             <a class="btn btn-dark rounded-pill disabled" disabled>前の商品</a>
                             @endif
 
                             <!-- 次の商品ボタンの表示 -->
-                            @if ($item->id < $itemsCount)
-                            <a href="{{ route('items.detail', ['item' => $item->id + 1]) }}" type="button" id="next_button" class="btn btn-dark rounded-pill">次の商品</a>
+                            @if ($item->getNext())
+                             <a href="{{ route('items.detail', ['item' => $item->getNext()->id]) }}" type="button" id="next_button" class="btn btn-dark rounded-pill">次の商品</a>
                             @else
                             <a class="btn btn-dark rounded-pill disabled" disabled>次の商品</a>
                             @endif

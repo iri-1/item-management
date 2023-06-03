@@ -34,8 +34,9 @@ class ItemController extends Controller
             ::where('items.status', 'active')
             // ->select()
             // ->get();
-            ->orderBy('updated_at', 'desc')
-            ->paginate(10);
+            // ->orderBy('updated_at', 'desc')
+            // ->orderBy('id', 'desc')
+            ->paginate(config("const.Items.PER_PAGE"));
         return view('item.index', compact('items'));
     }
         //CSVエクスポート用関数
@@ -154,11 +155,11 @@ class ItemController extends Controller
       public function detail(Item $item)
       {
 
-        //   return view('item.detail')
-        //       ->with(['item' => $item]);
+          return view('item.detail')
+              ->with(['item' => $item]);
 
-        $itemsCount = Item::count();
-    return view('item.detail', compact('item', 'itemsCount'));
+    //     $itemsCount = Item::count();
+    // return view('item.detail', compact('item', 'itemsCount'));
 
       }
 

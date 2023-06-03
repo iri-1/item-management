@@ -39,4 +39,18 @@ class Item extends Model
      */
     protected $casts = [
     ];
+// 次の商品を取得する
+    public function getNext(){
+        return static::where('id','>',$this->id)->orderBy('id')->first();
+    }
+    // 前の商品を取得する
+    public function getPrevious(){
+        return static::where('id','<',$this->id)->orderBy('id','DESC')->first();
+    }
+
+    public function getPageNumber(){
+      $itemCount =  static::where("id","<" ,$this->id)->count();
+      $perPage = config("const.Items.PER_PAGE");
+      return floor($itemCount / $perPage) + 1;
+    }
 }

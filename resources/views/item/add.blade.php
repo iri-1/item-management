@@ -18,6 +18,11 @@
                     </ul>
                 </div>
             @endif
+            @if (session('status'))
+                <div class="alert alert-success">
+                    {{ session('status') }}
+                </div>
+            @endif
             <form action="{{ route('items.import') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group3">

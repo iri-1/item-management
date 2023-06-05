@@ -63,21 +63,23 @@
 
                 <div class="card-footer">
                     <div class="form-button">
-                        <a href="{{ route('items.edit', $item) }}" class="btn btn-secondary rounded-pill">編集</a>
+                        <a href="{{ route('items.edit', $item) }}" class="btn btn-primary btn-lg rounded-pill">編集</a>
                         {{-- <a href="{{ session('previous_url') ?? url()->previous() }}" class="btn btn-secondary button-back rounded-pill">戻る</a> --}}
                         {{-- <a href="{{ '/items' }}" type="submit" class="btn btn-secondary rounded-pill">戻る</a> --}}
-                         <a href="{{ route('items.index',["page"=> $item->getPageNumber()] ) }}"  class="btn btn-secondary rounded-pill">戻る</a>
+                         <a href="{{ route('items.index',["page"=> $item->getPageNumber()] ) }}"  class="btn btn-warning button-back btn-lg rounded-pill">戻る</a>
 
                             <!-- 前の商品ボタンの表示 -->
+                            {{-- getPrevious()はmodels\Item.phpに定義しています データベースにある次の商品を取得します--}}
                             @if ($item->getPrevious())
-                            <a href="{{ route('items.detail', ['item' => $item->getPrevious()->id]) }}" type="button" id="before_button" class="btn btn-dark rounded-pill">前の商品</a>
+                            <a href="{{ route('items.detail', ['item' => $item->getPrevious()->id]) }}" type="button" id="before_button" class="btn btn-dark btn-lg rounded-pill">前の商品</a>
                             @else
                             <a class="btn btn-dark rounded-pill disabled" disabled>前の商品</a>
                             @endif
 
                             <!-- 次の商品ボタンの表示 -->
+                            {{-- getNext()はmodels\Item.phpに定義しています --}}
                             @if ($item->getNext())
-                             <a href="{{ route('items.detail', ['item' => $item->getNext()->id]) }}" type="button" id="next_button" class="btn btn-dark rounded-pill">次の商品</a>
+                             <a href="{{ route('items.detail', ['item' => $item->getNext()->id]) }}" type="button" id="next_button" class="btn btn-dark btn-lg rounded-pill">次の商品</a>
                             @else
                             <a class="btn btn-dark rounded-pill disabled" disabled>次の商品</a>
                             @endif

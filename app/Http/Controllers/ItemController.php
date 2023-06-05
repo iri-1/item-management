@@ -36,6 +36,7 @@ class ItemController extends Controller
             // ->get();
             // ->orderBy('updated_at', 'desc')
             // ->orderBy('id', 'desc')
+            // const.Items.PER_PAGEは一つのページ何個まで表示するのを定義している定数ですconfig\const.phpに定義しています。
             ->paginate(config("const.Items.PER_PAGE"));
         return view('item.index', compact('items'));
     }
@@ -202,8 +203,8 @@ class ItemController extends Controller
                     $item->detail = $request->detail;
                     $item->save();
 
-                    return redirect('/items');
-
+                    // return redirect('/items');
+                    return redirect()->route('items.detail', $item->id);
     }
 
 //削除

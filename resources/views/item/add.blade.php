@@ -23,7 +23,7 @@
                 <div class="form-group3">
                     <label for="csv_file">CSVファイル</label>
                     <input type="file" name="csv_file" id="csv_file" class="form-control-file">
-                    <button type="submit" class="btn btn-primary rounded-pill add-btn">CSV一括登録</button>
+                    <button type="submit" class="btn btn-primary rounded-pill btn-lg add-btn">CSV一括登録</button>
                 </div>
             </form>
             <div class="card card-primary">
@@ -120,9 +120,9 @@
                     </div>
 
                     <div class="card-footer">
-                        <button type="submit" class="btn btn-secondary rounded-pill">登録</button>
+                        <button type="submit" class="btn btn-primary rounded-pill btn-lg add-btn">登録</button>
                         {{-- <a href="{{ '/items' }}" type="submit" class="btn btn-secondary rounded-pill">戻る</a> --}}
-                        <a href="{{ route('items.index' ) }}" type="submit" class="btn btn-secondary rounded-pill">戻る</a>
+                        <a href="{{ route('items.index' ) }}" type="submit" class="btn btn-warning button-back btn-lg rounded-pill">戻る</a>
                     </div>
                 </form>
 

@@ -40,6 +40,7 @@ class Item extends Model
     protected $casts = [
     ];
 // 次の商品を取得する
+
     public function getNext(){
         return static::where('id','>',$this->id)->orderBy('id')->first();
     }
@@ -47,7 +48,7 @@ class Item extends Model
     public function getPrevious(){
         return static::where('id','<',$this->id)->orderBy('id','DESC')->first();
     }
-
+    // const.Items.PER_PAGEは一つのページ何個まで表示するのを定義している定数ですconfig\const.phpに定義しています。
     public function getPageNumber(){
       $itemCount =  static::where("id","<" ,$this->id)->count();
       $perPage = config("const.Items.PER_PAGE");

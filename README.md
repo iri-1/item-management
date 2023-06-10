@@ -15,7 +15,7 @@ MySQL 14.14
 Laravel 8.75
 
 設計書
-[商品設計ページ](https://drive.google.com/drive/u/0/folders/1NqLYfdjFhlwSi1hIzG5S5NquiuEdtx2X)
+[商品設計ページ](https://drive.google.com/drive/u/0/folders/1VNtB0oDwUJ2UYeDuWGmMje3OeEfA-3Yn)
 
 ## システム閲覧
 [アプリケーションページへ](https://iri-1.com/item-management/public/)
